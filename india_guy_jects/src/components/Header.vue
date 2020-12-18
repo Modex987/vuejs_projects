@@ -21,6 +21,9 @@
             </li>            
             <li class="nav-item">
               <router-link :to="{name: 'Calculator'}" class="nav-link">Calculator</router-link>
+            </li>            
+            <li class="nav-item">
+              <router-link :to="{name: 'Chat'}" class="nav-link">Chat</router-link>
             </li>
             <li class="d-flex nav-item">          
               <button class="mx-auto nav-link btn btn-link" @click="$emit('logoutAttemp')" v-if="isUserLoggedIn">Log Out</button>
@@ -37,17 +40,35 @@
 </template>
 
 <script>
+import {useStore} from "vuex"
+
 export default {
     name: 'Header',
 
     props: {
       // isUserLoggedIn: Boolean,
-      isUserLoggedIn: {type: Boolean, default: false},
+      // isUserLoggedIn: {type: Boolean, default: false},
     },
 
     methods: {
       
     },
+
+    data(){
+      return {
+        // store: this.$store, // and then use just store.commit('mutation')
+        store: useStore()
+      }
+    },
+
+    computed: {
+
+      isUserLoggedIn(){
+        return this.store.state.isUserLoggedIn
+      }
+
+    },
+
 }
 </script>
 

@@ -127,8 +127,8 @@ export default {
         // this.$refs.email.blur()
         // this.show = false
     },
-
 }
+
 </script>
 
 

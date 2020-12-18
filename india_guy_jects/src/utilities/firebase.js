@@ -1,26 +1,18 @@
 import firebase from "firebase/app";
 
+
 import "firebase/auth";
+import "firebase/database";
+
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCw7SVtemV8IDuoB38qUhweJS9IvvrlHJ8",
-    authDomain: "vue-loginsystem.firebaseapp.com",
-    projectId: "vue-loginsystem",
-    storageBucket: "vue-loginsystem.appspot.com",
-    messagingSenderId: "316498073928",
-    appId: "1:316498073928:web:425e386b59fd149fa5bb7d"
-  };
-
-// var firebaseConfig = {
-//   apiKey: "API_KEY",
-//   authDomain: "PROJECT_ID.firebaseapp.com",
-//   databaseURL: "https://PROJECT_ID.firebaseio.com",
-//   projectId: "PROJECT_ID",
-//   storageBucket: "PROJECT_ID.appspot.com",
-//   messagingSenderId: "SENDER_ID",
-//   appId: "APP_ID",
-//   measurementId: "G-MEASUREMENT_ID",
-// };
+      apiKey: "AIzaSyCw7SVtemV8IDuoB38qUhweJS9IvvrlHJ8",
+      authDomain: "vue-loginsystem.firebaseapp.com",
+      projectId: "vue-loginsystem",
+      storageBucket: "vue-loginsystem.appspot.com",
+      messagingSenderId: "316498073928",
+      appId: "1:316498073928:web:425e386b59fd149fa5bb7d"
+};
 
 
 /*

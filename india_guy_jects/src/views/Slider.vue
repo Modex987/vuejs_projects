@@ -1,7 +1,8 @@
 <template>
   <h1>Slider</h1>
   <hr>
-  <div class="px-5" id="slider">
+  <div class="row">
+      <div class="px-5 m-auto" id="slider">
       <!-- using v-for -->
 
       <div v-for="k in numberOfSlides" :key="k">
@@ -24,6 +25,7 @@
     </transition>
     <button class="btn btn-outline-primary" @click="isTitleVisible = !isTitleVisible">Toggle</button>
   </div> -->
+  </div>
 </template>
 
 
@@ -76,6 +78,9 @@ export default {
 
 
 <style scoped>
+body{
+  overflow: hidden;
+}
 
 #slider{
     position: relative;

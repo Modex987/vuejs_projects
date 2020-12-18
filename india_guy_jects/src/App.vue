@@ -1,6 +1,6 @@
 <template>
 
-  <Header @loginAttemp="visibleLoginModal = true" @logoutAttemp="logoutUser" :isUserLoggedIn="isUserLoggedIn"/>
+  <Header @loginAttemp="visibleLoginModal = true" @logoutAttemp="logoutUser"/>
   <div class="container">
     <router-view/>
   </div>
@@ -17,6 +17,7 @@
 import Header from './components/Header'
 import LoginModal from './components/LoginModal'
 import firebase from './utilities/firebase.js'
+import {useStore} from "vuex"
 
 export default {
 
@@ -27,8 +28,7 @@ export default {
   data(){
     return {
       visibleLoginModal: false,
-      isUserLoggedIn: false,
-      authUser: {}
+      store: useStore(),
     }
   },
 
@@ -47,13 +47,15 @@ export default {
   mounted(){
 
     firebase.auth().onAuthStateChanged(user => {
+
       if (user) {
-        this.isUserLoggedIn = true
-        this.authUser = user
+        this.$store.commit('setIsUserLoggedIn', true)
+        this.$store.commit('setAuthUser', user)
       } else {
-        this.isUserLoggedIn = false
-        this.authUser = {}
+        this.$store.commit('setIsUserLoggedIn', false)
+        this.$store.commit('setAuthUser', {})
       }
+
     });
 
   }
@@ -65,9 +67,10 @@ export default {
 
 <style>
 
-body{
+*{
   padding: 0;
-  overflow: hidden;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 #app {
